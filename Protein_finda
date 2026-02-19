@@ -35,9 +35,9 @@ class ProteinCalculator:
             "chickpeas": 7,
             "black beans": 8.5,
             "quinoa": 4.4,
-            "edamame": 11,
-            "seitan": 25,
-            
+            "sossi soya": 41.1,
+
+
             # Nuts and Seeds
             "peanuts": 26,
             "almonds": 21,
@@ -46,7 +46,7 @@ class ProteinCalculator:
             "chia seeds": 17,
             
             # Protein supplements
-            "whey protein": 80,
+            "whey protein": 70,
             "casein protein": 75,
             "soy protein": 85,
             "pea protein": 75
