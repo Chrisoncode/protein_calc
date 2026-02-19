@@ -1,0 +1,172 @@
+class ProteinCalculator:
+    def __init__(self):
+        # Initialize with common protein sources (protein per 100g)
+        self.protein_database = {
+            # Meats
+            "chicken breast": 31,
+            "chicken thigh": 26,
+            "turkey breast": 29,
+            "beef (lean)": 26,
+            "ground beef (80/20) (minced)": 19,
+            "pork chop": 25,
+            "pork tenderloin": 22,
+            "lamb": 25,
+            
+            # Fish and Seafood
+            "salmon": 20,
+            "tuna": 24,
+            "cod": 18,
+            "shrimp": 24,
+            "tilapia": 26,
+            "mackerel": 19,
+            "omena": 40,
+            
+            # Eggs and Dairy
+            "eggs": 13, # one egg is around 6,7 grams (67 lol)
+            "greek yogurt": 10,
+            "cottage cheese": 11,
+            "milk": 3.4,
+            "cheddar cheese": 25,
+            
+            # Plant-based
+            "tofu": 8,
+            "tempeh": 19,
+            "lentils": 9,
+            "chickpeas": 7,
+            "black beans": 8.5,
+            "quinoa": 4.4,
+            "edamame": 11,
+            "seitan": 25,
+            
+            # Nuts and Seeds
+            "peanuts": 26,
+            "almonds": 21,
+            "walnuts": 15,
+            "pumpkin seeds": 19,
+            "chia seeds": 17,
+            
+            # Protein supplements
+            "whey protein": 80,
+            "casein protein": 75,
+            "soy protein": 85,
+            "pea protein": 75
+        }
+        
+    def display_common_foods(self):
+        """Display all foods in the database with their protein content"""
+        print("\n" + "="*50)
+        print("COMMON PROTEIN SOURCES (per 100g)")
+        print("="*50)
+        
+        # Group by category for better organization
+        categories = {
+            "Meats": ["chicken breast", "chicken thigh", "turkey breast", "beef (lean)", 
+                     "ground beef (80/20)", "pork chop", "pork tenderloin", "lamb"],
+            "Fish & Seafood": ["salmon", "tuna", "cod", "shrimp", "tilapia", "mackerel"],
+            "Eggs & Dairy": ["eggs", "greek yogurt", "cottage cheese", "milk", "cheddar cheese"],
+            "Plant-based": ["tofu", "tempeh", "lentils", "chickpeas", "black beans", "quinoa", "edamame", "seitan"],
+            "Nuts & Seeds": ["peanuts", "almonds", "walnuts", "pumpkin seeds", "chia seeds"],
+            "Protein Supplements": ["whey protein", "casein protein", "soy protein", "pea protein"]
+        }
+        
+        for category, foods in categories.items():
+            print(f"\n{category}:")
+            for food in foods:
+                if food in self.protein_database:
+                    print(f"  {food.title():20} {self.protein_database[food]:5.1f}g protein")
+    
+    def add_food(self):
+        """Add a new food to the database"""
+        print("\n" + "-"*40)
+        print("ADD NEW FOOD")
+        print("-"*40)
+        
+        name = input("Enter food name: ").lower().strip()
+        
+        if name in self.protein_database:
+            print(f"'{name}' already exists in the database!")
+            overwrite = input("Do you want to overwrite it? (y/n): ").lower()
+            if overwrite != 'y':
+                return
+        
+        try:
+            protein = float(input("Enter protein content (per 100g): "))
+            self.protein_database[name] = protein
+            print(f"✓ '{name}' added successfully!")
+        except ValueError:
+            print("✗ Invalid input! Protein content must be a number.")
+    
+    def calculate_protein(self):
+        """Calculate protein for a specific food and amount"""
+        print("\n" + "-"*40)
+        print("CALCULATE PROTEIN")
+        print("-"*40)
+        
+        # Get food name
+        food = input("Enter food name: ").lower().strip()
+        
+        # Check if food exists in database
+        if food not in self.protein_database:
+            print(f"'{food}' not found in database.")
+            add_new = input("Would you like to add it? (y/n): ").lower()
+            if add_new == 'y':
+                self.add_food()
+                # Ask again if they want to calculate with the new food
+                self.calculate_protein()
+            return
+        
+        # Get amount
+        try:
+            amount = float(input("Enter amount in grams: "))
+            if amount <= 0:
+                print("Amount must be positive!")
+                return
+            
+            # Calculate protein
+            protein_per_100g = self.protein_database[food]
+            total_protein = (protein_per_100g / 100) * amount
+            
+            print("\n" + "="*40)
+            print("RESULTS")
+            print("="*40)
+            print(f"Food: {food.title()}")
+            print(f"Amount: {amount}g")
+            print(f"Protein content: {protein_per_100g}g per 100g")
+            print(f"Total protein: {total_protein:.1f}g")
+            print("="*40)
+            
+        except ValueError:
+            print("✗ Invalid input! Please enter a valid number.")
+    
+    def run(self):
+        """Main program loop"""
+        print("\n" + "="*50)
+        print("WELCOME TO THE PROTEIN CALCULATOR")
+        print("="*50)
+        
+        while True:
+            print("\nMENU:")
+            print("1. View common protein sources")
+            print("2. Calculate protein for a food")
+            print("3. Add a new food to database")
+            print("4. Exit")
+            
+            choice = input("\nEnter your choice (1-4): ").strip()
+            
+            if choice == '1':
+                self.display_common_foods()
+            elif choice == '2':
+                self.calculate_protein()
+            elif choice == '3':
+                self.add_food()
+            elif choice == '4':
+                print("\nThank you for using the Protein Calculator!")
+                print("Goodbye!")
+                break
+            else:
+                print("Invalid choice! Please enter 1, 2, 3, or 4.")
+
+# Run the program
+if __name__ == "__main__":
+    calculator = ProteinCalculator()
+    calculator.run()
