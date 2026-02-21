@@ -1,6 +1,6 @@
 class ProteinCalculator:
     def __init__(self):
-        # Initialize with common protein sources (protein per 100g)
+        # common protein sources (protein per 100g)
         self.protein_database = {
             # Meats
             "chicken breast": 31,
