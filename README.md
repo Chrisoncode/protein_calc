@@ -15,7 +15,7 @@ A simple, interactive Python program that helps you calculate protein content in
 
 The calculator includes foods from these categories:
 - Meats (chicken, beef, pork, lamb)
-- Fish & Seafood (salmon, tuna, shrimp, etc.)
+- Fish & Seafood (salmon, tuna, shrimp, omena, etc.)
 - Eggs & Dairy
 - Plant-based proteins (tofu, lentils, beans, etc.)
 - Nuts & Seeds
