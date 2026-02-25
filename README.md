@@ -4,7 +4,7 @@ A simple, interactive Python program that helps you calculate protein content in
 
 ## Features 
 
-- **Extensive Database**: Pre-loaded with 40+ common protein sources across multiple categories
+- **Extensive Database**: Pre-loaded with 40+ common protein sources across multiple categories and regions itw
 - **Protein Calculation**: Calculate protein content based on food weight in grams
 - **Custom Food Addition**: Add your own foods to the database during runtime
 - **Organized Display**: View all foods grouped by category with their protein content
