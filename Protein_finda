@@ -50,6 +50,9 @@ class ProteinCalculator:
             "casein protein": 75,
             "soy protein": 85,
             "pea protein": 75
+
+            # Carbs 
+            "rice": 8,
         }
         
     def display_common_foods(self):
