@@ -37,7 +37,6 @@ class ProteinCalculator:
             "quinoa": 4.4,
             "sossi soya": 41.1,
 
-
             # Nuts and Seeds
             "peanuts": 26,
             "almonds": 21,
@@ -51,7 +50,7 @@ class ProteinCalculator:
             "soy protein": 85,
             "pea protein": 75
 
-            # Carbs 
+            # Carbs (mainly)
             "rice": 8,
             "spaghetti": 9,
         }
