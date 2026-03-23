@@ -53,6 +53,7 @@ class ProteinCalculator:
             # Carbs (mainly)
             "rice": 8,
             "spaghetti": 9,
+            "ugali": 1
         }
         
     def display_common_foods(self):
