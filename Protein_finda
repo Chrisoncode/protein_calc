@@ -28,7 +28,7 @@ class ProteinCalculator:
             "milk": 3.4,
             "cheddar cheese": 25,
             
-            # Plant-based
+            # Plant-based protein
             "tofu": 8,
             "tempeh": 19,
             "lentils": 9,
