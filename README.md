@@ -33,3 +33,4 @@ The calculator includes foods from these categories:
 4. Run the program:
    ```bash
    python protein_calculator.py
+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
